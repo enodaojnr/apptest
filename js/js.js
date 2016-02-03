@@ -121,7 +121,8 @@ function send()
 		   },
 		   error:function(res,txt)
 		   {
-		   	alert(txt);
+		   	var datax = eval("("+res.responseText+")");
+		   	alert(datax.Message);
 		   }
 		  });
 }
