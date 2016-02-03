@@ -68,6 +68,7 @@ function getsearch(lati,longi,forad)
 			data:'searchstrin='+searchstrin+'&lati='+lati+'&longi='+longi+'&forad='+forad,
 		   success: function(html){  
 		   //getti1(html);
+		   alert("hi");
 		progress =1;
 			// console.log('Increased by 0.1 - Is now '+progress);
 			$('body').loadie(progress);
