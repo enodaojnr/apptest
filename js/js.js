@@ -100,7 +100,7 @@ function call(usnm,area,prof)
 }
 function send()
 {
-    //alert("wat z wrng wit u")
+    alert("wat z wrng wit u")
  var username=$("#email").val();
 		  var password=$("#password").val();
 		  $.ajax({
