@@ -119,10 +119,10 @@ function send()
 		   {
 		//alert("going"+username);
 		   },
-		   error:function(res,txt)
+		   error:function(res,txt,noti)
 		   {
-		   	var datax = eval("("+res.responseText+")");
-		   	alert(datax.Message);
+		   	//var datax = eval("("+res.responseText+")");
+		   	alert(res.responseText);
 		   }
 		  });
 }
