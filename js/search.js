@@ -50,8 +50,8 @@ function search()
 
       var options = {
         enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0
+        timeout: 31000,
+        maximumAge: 90000
       };
 
       navigator.geolocation.getCurrentPosition(successCallback,errorCallback,options);
