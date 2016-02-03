@@ -112,6 +112,7 @@ function send()
 		   success: function(html){ 
 			localStorage.setItem("username",username);
 			localStorage.setItem("password",password);
+			alert(html);
 		   getti1(html);
 		   },
 		   beforeSend:function()
@@ -123,7 +124,7 @@ function send()
 
 function getti1(dis)
 {
-alert("in1234");
+//alert("in1234");
 			if(dis == "success"){
 			 //$("#add_err").html("right username or password");
 			 window.location="welcome.html";
