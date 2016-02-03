@@ -119,9 +119,9 @@ function send()
 		   {
 		//alert("going"+username);
 		   },
-		   error:function(res)
+		   error:function(res,txt)
 		   {
-		   	alert(res);
+		   	alert(txt);
 		   }
 		  });
 }
