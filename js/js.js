@@ -110,7 +110,7 @@ function send()
 			data:'name='+username+'&pwd='+password,
 			ContentType:"application/json",
 		   success: function(html){ 
-		   	alert(html);
+		   	//alert(html);
 			localStorage.setItem("username",username);
 			localStorage.setItem("password",password);
 		   getti1(html);
@@ -118,6 +118,10 @@ function send()
 		   beforeSend:function()
 		   {
 		//alert("going"+username);
+		   },
+		   error:function(res)
+		   {
+		   	alert(res);
 		   }
 		  });
 }
