@@ -116,14 +116,14 @@ function send()
 		   },
 		   beforeSend:function()
 		   {
-		alert("going"+username);
+		//alert("going"+username);
 		   }
 		  });
 }
 
 function getti1(dis)
 {
-//alert("in1234");
+alert("in1234");
 			if(dis == "success"){
 			 //$("#add_err").html("right username or password");
 			 window.location="welcome.html";
