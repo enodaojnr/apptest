@@ -1,0 +1,78 @@
+	
+/*The CSS*/
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+		color: #337AB7;
+}
+.center {
+	text-align: center;
+	padding: 5px;
+}
+
+.background {
+	background-color:#314D68;
+	padding:30px
+}
+
+.cover {
+	background: #F5F5F5;
+	border-radius: 15px;
+	padding-top: 5px;
+	text-align: center;
+}
+
+.paddingtop {
+	padding-top: 30px;
+}
+
+.main {
+	padding-bottom: 30px;
+
+}
+
+img {
+   padding:4px;
+   border:3px solid #021a40;
+   background-color: #314D68;
+}
+
+.bottombuttons {
+	padding-bottom: 30px;
+	margin: 0 auto;
+	margin-left: 80px;
+}
+
+
+/*Edit Profile CSS*/
+
+.input-group {
+	padding-bottom: 5px;
+}
+
+
+/*Welcome Page CSS*/
+
+.carousel-content {
+    color:black;
+    align-items:center;
+}
+
+.title {
+	
+}
+
+.notification {
+	text-align: left;
+	padding-bottom: 20px;
+}
+
+
+/*My Profile CSS*/
+.navbar-default2 {
+    background-color: #F5F5F5;
+    border-color: #F5F5F5;
+}
+
+    /* Modal*/
+.modal {
+    margin-top: 120px;
+}

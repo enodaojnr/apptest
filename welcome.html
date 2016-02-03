@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome To My App</title>
+
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="js/js.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	 <link href="css/bootstrap.min.css" rel="stylesheet">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	 <script type="text/javascript">
+	 	setCarouselHeight('#carousel-example');
+         </script>
+    <script src="js/loadie/jquery.min.js"></script>
+	<script src="js/loadie/jquery.loadie.js"></script>
+	<link rel="stylesheet" href="css/loadie/loadie.css">
+	<style>body{margin:0px}</style>
+    
+    <script>
+    function setCarouselHeight(id)
+    {
+        var slideHeight = [];
+        $(id+' .item').each(function()
+        {
+            // add all slide heights to an array
+            slideHeight.push($(this).height());
+        });
+
+        // find the tallest item
+        max = Math.max.apply(null, slideHeight);
+
+        // set the slide's height
+        $(id+' .carousel-content').each(function()
+        {
+            $(this).css('height',max+'px');
+        });
+    }
+	 </script>
+
+	 <script type="text/javascript">
+      var username= localStorage.getItem("username");
+		  var password= localStorage.getItem("password");
+		  if(username === 'null')
+		  {
+			window.location ="index.html";
+		  }
+		  $.ajax({
+		   type: "POST",
+		   url: "http://handyserver.cloudapp.net/new/session.php",
+			data:'name='+username+'&pwd='+password,
+		   success: function(html){
+               //alert(html);
+		   if(html == "no data")
+           {
+		//alert("1");
+           //window.location = "index.html";
+           }
+		else if(html == "nothing")
+		{
+		//window.location = "index.html";
+		} else
+               {
+                   //alert(html+"KKK");
+                   //alert();
+                    var html2 = JSON.parse(html);
+                   document.getElementById('userw').innerHTML = html2.fn+" "+html2.ln;
+                
+                   //var x = document.getElementById('lbStatus').innerText
+               }
+		   },
+		   beforeSend:function()
+		   {
+			//alert("going"+username);
+		   }
+		  });
+
+      </script>
+</head>
+
+<body class="background">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 cover title">
+				<div class="page-header">
+  					<h2>Welcome <small><div id="userw">Directory Appilcation</div></small></h2>
+				</div>
+
+
+
+				<div id="carousel-example" class="carousel slide" data-ride="carousel">
+	    <!-- Wrapper for slides -->
+				    <div class="row">
+				        <div class="col-xs-offset-2 col-xs-8">
+				            <div class="carousel-inner">
+				                <div class="item active">
+				                    <div class="carousel-content">
+				                        <div>
+				                            <h3>1. Need Help?</h3>
+				                            <p>This is another much longer item. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga, This is another much longer item. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga </p>
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class="item">
+				                    <div class="carousel-content">
+				                        <div>
+				                            <h3>2. Search The Directory</h3>
+				                            <p>This is another much longer item. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga, This is another much longer item. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga </p>
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class="item">
+				                    <div class="carousel-content">
+				                        <div>
+				                            <h3>3. Call or Send A Message</h3>                            
+				                            <p>This is another much longer item. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga, This is another much longer item. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga </p>
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class="item">
+				                    <div class="carousel-content">
+				                        <div>
+				                            <h3>4. Start Recieving Notifications</h3>                            
+				                            <p>This is another much longer item. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga, This is another much longer item. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga </p>
+				                        </div>
+				                    </div>
+				                </div>
+
+				                
+				            </div>
+				        </div>
+				    </div>
+				</div>
+				<hr></hr>
+				<div class="col-xs-offset-2 col-xs-8 input-group">
+					<button id="progress-loadie" type="button" class="btn btn-default btn-lg btn-block btn-success" onclick="prof()"><i class="fa fa-user"></i> My Profile</button>
+					<button type="button" class="btn btn-default btn-lg btn-block" onclick="noti()"><i class="fa fa-exclamation-circle"></i> Notification</button>
+					<button type="button" class="btn btn-default btn-lg btn-block"><i class="fa fa-users"></i> People</button>
+					<button type="button" class="btn btn-default btn-lg btn-block"onclick="search1()"><i class="fa fa-search"></i> Search</button>
+					<button type="button" class="btn btn-default btn-lg btn-block"><i class="fa fa-list"></i> Contacts</button>
+					<button type="button" class="btn btn-default btn-lg btn-block btn-danger" onclick="logout1()"><i class="fa fa-sign-out"></i> Log Out</button>
+				</div>
+				<hr></hr>
+			</div>
+
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+
+	<script>
+	$(function() {
+		
+		
+		$('#finish-loadie').bind('click', function() {
+			progress = 1
+			// console.log('Finished the Loadie - '+progress);
+			$('body').loadie(progress);
+		});
+	})
+	</script>
+	<script>
+		var progress=0;
+		function str()
+		{
+		
+		//});
+		}
+		function prof()
+		{
+		$('body').loadie();
+
+    		progress = 0.2
+		setTimeout(function() {
+			$('body').loadie(progress);
+		}, 300);
+
+		//$('#start-loadie').bind('click', function() {
+			if(progress >= 0.9) {
+				$('.loadie').fadeIn();
+			}
+			progress = 0
+			$('body').loadie(progress);
+			setTimeout(function() {
+				progress = 0.1;
+				$('body').loadie(progress);
+				// console.log('Restarted -'+progress);
+			}, 600)
+		//$('#progress-loadie').bind('click', function() {
+			progress += 0.13;
+			// console.log('Increased by 0.1 - Is now '+progress);
+			$('body').loadie(progress);
+		//});
+		window.location="myprofile.html";
+		}
+
+		function noti()
+		{
+		$('body').loadie();
+
+    		progress = 0.2
+		setTimeout(function() {
+			$('body').loadie(progress);
+		}, 300);
+
+		//$('#start-loadie').bind('click', function() {
+			if(progress >= 0.9) {
+				$('.loadie').fadeIn();
+			}
+			progress = 0
+			$('body').loadie(progress);
+			setTimeout(function() {
+				progress = 0.1;
+				$('body').loadie(progress);
+				// console.log('Restarted -'+progress);
+			}, 600)
+		//alert();
+		//$('#progress-loadie').bind('click', function() {
+			progress += 0.13;
+			// console.log('Increased by 0.1 - Is now '+progress);
+			$('body').loadie(progress);
+		//});
+		//alert();
+		window.location="notification.html";
+		}
+
+		function search1()
+		{
+		$('body').loadie();
+
+    		progress = 0.2
+		setTimeout(function() {
+			$('body').loadie(progress);
+		}, 300);
+
+		//$('#start-loadie').bind('click', function() {
+			if(progress >= 0.9) {
+				$('.loadie').fadeIn();
+			}
+			progress = 0
+			$('body').loadie(progress);
+			setTimeout(function() {
+				progress = 0.1;
+				$('body').loadie(progress);
+				// console.log('Restarted -'+progress);
+			}, 600);
+		//alert();
+		//$('#progress-loadie').bind('click', function() {
+			progress += 0.13;
+			// console.log('Increased by 0.1 - Is now '+progress);
+			$('body').loadie(progress);
+		//});
+		//alert();
+		window.location="search.html";
+		}
+
+		function logout1()
+		{
+		$('body').loadie();
+
+    		progress = 0.2
+		setTimeout(function() {
+			$('body').loadie(progress);
+		}, 300);
+
+		//$('#start-loadie').bind('click', function() {
+			if(progress >= 0.9) {
+				$('.loadie').fadeIn();
+			}
+			progress = 0
+			$('body').loadie(progress);
+			setTimeout(function() {
+				progress = 0.1;
+				$('body').loadie(progress);
+				// console.log('Restarted -'+progress);
+			}, 600)
+		//alert();
+		//$('#progress-loadie').bind('click', function() {
+			progress += 0.13;
+			// console.log('Increased by 0.1 - Is now '+progress);
+			$('body').loadie(progress);
+		//});
+		//alert();
+		logout();
+		}
+	</script>
+
+
+
+</body>
+</html>

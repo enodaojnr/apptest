@@ -1,0 +1,20 @@
+.pink {
+		background: pink;
+		border: 1px solid purple;
+	}
+
+.center {
+	text-align: center;
+	padding: 5px;
+}
+
+.background {
+	background-color:#314D68;
+	padding:50px
+}
+
+.cover {
+	background: #F5F5F5;
+	border-radius: 30px;
+	padding-bottom: 10px;
+}

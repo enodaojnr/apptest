@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Profile</title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	 <link href="css/bootstrap.min.css" rel="stylesheet">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	 <script src="js/main.js"></script>
+	 	 <script src="js/js.js"></script>
+    
+    <script src="js/loadie/jquery.min.js"></script>
+	<script src="js/loadie/jquery.loadie.js"></script>
+	<link rel="stylesheet" href="css/loadie/loadie.css">
+	<style>body{margin:0px}</style>
+
+    <script src="js/ajax.js"></script>
+	         <script type="text/javascript">
+      var username= localStorage.getItem("username");
+		  var password= localStorage.getItem("password");
+		  if(username == 'null')
+		  {
+			window.location ="index.html";
+		  }else
+		  {
+		 	 
+		  }
+
+      </script>
+
+        <script type="text/javascript">
+      function getUrlVars() {
+var vars = {};
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+vars[key] = value;
+});
+return vars;
+}
+            
+var username = getUrlVars()["user"];
+var area = "";
+var prof = "";
+            //alert(username);
+		  var password="search";
+		  $.ajax({
+		   type: "POST",
+		   url: "http://handyserver.cloudapp.net/new/user.php",
+            datatype:JSON,
+			data:'name='+username+'&pwd='+password,
+		   success: function(html){
+               //alert(html);
+               var html2 = JSON.parse(html);
+               //alert(html2.fn.length);
+           
+		   if(html == "no data")
+           {
+           //alert(html);
+           }
+           if(html == "noting")
+           {
+           //alert(html);
+           }
+               else
+               {
+			   area = html2.area;
+			   prof = html2.prof;
+			 //  alert(html[0].length);
+                    document.getElementById('usern').innerHTML = html2.fn+" "+html2.ln;
+                     document.getElementById('area').innerHTML = "<span class='badge'><i class='glyphicon glyphicon-map-marker'></i></span>"+html2.area;
+                      document.getElementById('email').innerHTML = "<span class='badge'><i class='glyphicon glyphicon-envelope'></i></span>"+html2.email;
+                       //document.getElementById('web').innerHTML = html2.prof;
+					   //document.getElementById('callEdit').style = "display:block";
+					   //document.getElementById('callEdit').innerHTML = "Edit";
+                   document.getElementById('prof').innerHTML = html2.prof;
+                   document.getElementById('imgsrc').src="http://handyserver.cloudapp.net/new/photo/"+html2.email+".jpg";
+                       
+                  // alert(arr+"KKKrr");
+                   //var x = document.getElementById('lbStatus').innerText
+               }
+		   },
+		   beforeSend:function()
+		   {
+			//alert("going"+username);
+		   }
+		  });
+      </script>
+</head>
+<body class="background">
+	<div class="paddingtop"></div>
+<!-- 	<div class="container">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4 cover">
+				<h4>Edit My Profile</h4>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+ -->	<div class="container">
+		<div class="row">
+			<div class="col-lg-4"></div>
+
+			<div class="col-lg-4 cover">
+				<legend>My Profile</legend>
+				<div class="col-md-4" style="padding-top: 5px;">
+				<img src="" id="imgsrc" onerror="if (this.src != 'default.png') this.src = 'default.png';" alt="" class="img-circle img-responsive" />
+
+				</div>
+				<div class="col-md-8">
+				<h3 id="usern">Barak Obama Raheem</h3>
+				<p id="prof">President of the USA</p>
+				</div>
+
+
+					<div class="row">
+						<div class="col-md-12" style="padding-top: 30px;">
+
+							<ul class="list-group">
+	  							<li class="list-group-item" id="area">
+	    							<span class="badge"><i class="glyphicon glyphicon-map-marker"></i></span>
+	    							San Francisco, USA
+	  							</li>
+	  							<li class="list-group-item" id="email">
+	    							<span class="badge"><i class="glyphicon glyphicon-envelope"></i></span>
+	    							test@test.com
+	  							</li>
+	  							<li class="list-group-item">
+	    							<span class="badge"><i class="glyphicon glyphicon-globe"></i></span>
+	    							www.testserver.com
+	  							</li>
+	  							<li class="list-group-item">
+	    							<span class="badge"><i class="glyphicon glyphicon-gift"></i></span>
+	    							June 02, 1988
+	  							</li>
+	  						</ul>
+							</div>
+							<div class="col-xs-offset-2 col-xs-8 input-group" style="padding-top: 10px;">
+								<button type="button" class="btn btn-default btn btn-block btn-success" onclick="call(username,area,prof)"><i class="fa fa-pencil-square"></i> Call</button>
+								<button type="button" class="btn btn-default btn btn-block"><i class="fa fa-clipboard"></i> View Post</button>
+								<button type="button" class="btn btn-default btn btn-block" onclick="window.location='welcome.html'"><i class="fa fa-home"></i> Home</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-lg-4"></div>
+		</div>
+	</div>
+
+
+	<script>
+	$(function() {
+		$('body').loadie();
+
+    var progress = 0.2
+		setTimeout(function() {
+			$('body').loadie(progress);
+		}, 300);
+
+		$('#start-loadie').bind('click', function() {
+			if(progress >= 0.9) {
+				$('.loadie').fadeIn();
+			}
+			progress = 0
+			$('body').loadie(progress);
+			setTimeout(function() {
+				progress = 0.1;
+				$('body').loadie(progress);
+				// console.log('Restarted -'+progress);
+			}, 600)
+		});
+		$('#progress-loadie').bind('click', function() {
+			progress += 0.13;
+			// console.log('Increased by 0.1 - Is now '+progress);
+			$('body').loadie(progress);
+		});
+		$('#finish-loadie').bind('click', function() {
+			progress = 1
+			// console.log('Finished the Loadie - '+progress);
+			$('body').loadie(progress);
+		});
+	})
+	</script>
+
+
+</body>
+</html>
+

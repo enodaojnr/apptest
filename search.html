@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search</title>
+
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	 <link href="css/bootstrap.min.css" rel="stylesheet">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	 
+	 <script src="js/search.js"></script>
+	 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+	
+	<script src="js/loadie/jquery.loadie.js"></script>
+	<link rel="stylesheet" href="css/loadie/loadie.css">
+	<style>body{margin:0px}</style>
+
+	   <script>
+  	$(function() {
+    	var availableTags = [
+      "ActionScript",
+      "Air conditioner Repairs","Aluminium Experts",
+      "Artist","Auto Mechanics","Barber","Basket Weavers",
+      "Battery Charger",
+      "Bicycle Repairer","Borehole Experts",
+      "Bricklayer",
+      "Carpenter",
+      "Car Hire",
+      "Carwash",
+      "Caterer",
+      "Ceiling POP",
+      "Chef",
+      "Cobler (Shoe Maker)",
+      "Computer Repairs",
+      "Costumer",
+      "Disc Jockey (DJ)",
+      "Dish Installer",
+      "Drycleaner",
+      "Electricians",
+      "Embroidery",
+      "Fitness Instructor",
+"Fumigators",
+"Gardener",
+"Gas Cooker Repairs",
+"Gas Refill",
+"Generator Repairer",
+"Graffiti Designer",
+"Hairdresser",
+"Horticulturist / Florist",
+"Internet Cafe",
+"Iron Bender (Blacksmith)",
+"Key Cutters",
+"Make-up Artist",
+"Motorcycle Repairer",
+"Painters",
+"Panel Beater",
+"Phone Repairer",
+"Photographer",
+"Plumber",
+"Printer",
+"Rental Services",
+"Rewire",
+"Roofing Expert",
+"Sign Writer",
+"Spare Part Dealer",
+"Stainless Steel Installer",
+"Tailor",
+"Technician",
+"Television Repairer",
+"Tiler",
+"Towing Truck",
+"Upholstery",
+"Veterinary Specialist",
+"Videographer",
+"Vulcanizer",
+"Welder",
+"Wheel Balancing",
+"Wood Turner"
+    ];
+    $( "#search" ).autocomplete({
+      source: availableTags
+    });
+  });
+  </script>
+
+</head>
+
+<body class="background">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 cover title">
+				<div class="page-header">
+  					<h2>Search <small>Find people in a jiffy</small></h2>
+				</div>
+
+				<div class="col-xs-offset-2 col-xs-8 input-group">
+					<div class="input-group">
+      					<input type="text" id="search" class="form-control" placeholder="Start your search here...">
+      					<span class="input-group-btn">
+        					<button class="btn btn-default" type="button" onclick="search1()">Go!</button>
+      					</span>
+    				</div><!-- /input-group -->
+
+    								<!-- Search Pattern -->
+    				<div class="btn-group pull-right" data-toggle="buttons-radio" style="padding-top: 10px;">
+                			<button class="btn active btn-info">All</button>
+                			<button class="btn btn-info">Starred</button>
+            		</div>
+
+            		<!-- Search Result -->
+            		<hr></hr>
+            		<div class="col-xs-offset-2 col-xs-8">
+						<div>
+							<h3>Search Results</h3>
+							<p class="lead"><strong id="resultsnum" class="text-danger"></strong> result(s) were found for the search term <strong id="sname" class="text-danger">james</strong></p>
+						</div>
+					</div>
+				</div>
+
+				<hr></hr>
+<!-- 				<div class="col-xs-offset-2 col-xs-8 input-group">
+					<button type="button" class="btn btn-default btn-lg btn-block"><i class="fa fa-home"></i> Home</button>
+					<button type="button" class="btn btn-default btn-lg btn-block btn-success"><i class="fa fa-user"></i> My Profile</button>
+				</div>
+				<hr></hr> -->
+
+
+				<div class="col-lg-1"></div>
+				<div class="col-lg-10">
+						<div>
+							<button type="button" class="btn btn-default btn-lg btn-block" onclick="window.location='welcome.html'"><i class="fa fa-home"></i> Home</button>
+							<button type="button" class="btn btn-default btn-lg btn-block btn-success" onclick="window.location='myprofile.html'"><i class="fa fa-user"></i> My Profile</button>
+							<hr></hr>
+							<div id="searchrep"> <!-- To duplicate, start highlighting from here -->
+								
+							</div> <!-- To duplicate, stop highlighing here -->	
+
+						</div>
+				</div>
+				<div class="col-lg-1"></div>
+
+
+
+
+
+
+			</div>
+
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+
+	<script>
+		var progress=0;
+		function search1()
+		{
+		search();
+		}
+		function prof()
+		{
+		$('body').loadie();
+
+    		progress = 0.2
+		setTimeout(function() {
+			$('body').loadie(progress);
+		}, 300);
+
+		//$('#start-loadie').bind('click', function() {
+			if(progress >= 0.9) {
+				$('.loadie').fadeIn();
+			}
+			progress = 0
+			$('body').loadie(progress);
+			setTimeout(function() {
+				progress = 0.1;
+				$('body').loadie(progress);
+				// console.log('Restarted -'+progress);
+			}, 600)
+		//$('#progress-loadie').bind('click', function() {
+			progress += 0.13;
+			// console.log('Increased by 0.1 - Is now '+progress);
+			$('body').loadie(progress);
+		//});
+		window.location="myprofile.html";
+		}
+
+		function home()
+		{
+		$('body').loadie();
+
+    		progress = 0.2
+		setTimeout(function() {
+			$('body').loadie(progress);
+		}, 300);
+
+		//$('#start-loadie').bind('click', function() {
+			if(progress >= 0.9) {
+				$('.loadie').fadeIn();
+			}
+			progress = 0
+			$('body').loadie(progress);
+			setTimeout(function() {
+				progress = 0.1;
+				$('body').loadie(progress);
+				// console.log('Restarted -'+progress);
+			}, 600)
+		//alert();
+		//$('#progress-loadie').bind('click', function() {
+			progress += 0.13;
+			// console.log('Increased by 0.1 - Is now '+progress);
+			$('body').loadie(progress);
+		//});
+		//alert();
+		window.location="welcome.html";
+		}
+
+</script>
+
+
+</body>
+</html>

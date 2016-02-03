@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit My Profile</title>
+
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	 <link href="css/bootstrap.min.css" rel="stylesheet">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<script src="js/loadie/jquery.min.js"></script>
+	<script src="js/loadie/jquery.loadie.js"></script>
+	<link rel="stylesheet" href="css/loadie/loadie.css">
+	<style>body{margin:0px}</style>
+
+
+	 <script src="js/main.js"></script>
+    <script src="js/ajax.js"></script>
+ <script src="js/signup2.js"></script>
+ <script type="text/javascript">
+      var username= localStorage.getItem("username");
+		  var password= localStorage.getItem("password");
+		  $.ajax({
+		   type: "POST",
+		   url: "http://handyserver.cloudapp.net/new/sessionget.php",
+            datatype:JSON,
+			data:'name='+username+'&pwd='+password,
+		   success: function(html){
+               //alert(html);
+               var html2 = JSON.parse(html);
+               
+		   if(html == "no data")
+           {
+           //alert(html);
+           }
+           if(html == "noting")
+           {
+           //alert(html);
+           }
+               else
+               {
+                    document.getElementById('firstname').value = html2.fn;
+                     document.getElementById('lastname').value = html2.ln;
+                      document.getElementById('email').value = html2.email;
+                       document.getElementById('user').value = html2.prof;
+					   //document.getElementById('callEdit').style = "display:block";
+					   document.getElementById('userarea').value = html2.area;
+                   //document.getElementById('').innerText = html2.prof;
+                           //alert(html[0]);
+                       
+                  // alert(arr+"KKKrr");
+                   //var x = document.getElementById('lbStatus').innerText
+               }
+		   },
+		   beforeSend:function()
+		   {
+			//alert("going"+username);
+		   }
+		  });
+      </script>
+
+</head>
+<body class="background">
+	<div class="paddingtop"></div>
+<!-- 	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 cover">
+				<h4>Edit My Profile</h4>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div> -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4 cover">
+
+				<form>   
+					<legend>Edit My profile</legend>
+
+					<div class="input-group">
+  						<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user"></i></span>
+                    	<input type="text" name="firstname" id="firstname" value="" class="form-control input" placeholder="First Name">
+                    </div> 
+                    <div class="input-group">
+  						<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user"></i></span> 
+                    	<input type="text" name="lastname" id="lastname" value="" class="form-control input" placeholder="Last Name"  />
+                    </div>
+                    <div class="input-group">
+  						<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-envelope"></i></span> 
+                    	<input type="text" name="email" id="email" value="" class="form-control input" placeholder="Your Email"/>
+                    </div>
+
+                    <div class="input-group">
+  						<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-search"></i></span> 
+                    		<select name="user" id="user" value="" class="form-control input">
+		                    	<option value="Air conditioner Repairs">Air conditioner Repairs</option>
+								<option value="Aluminium Experts">Aluminium Experts</option>
+								<option value="Artist">Artist</option>
+								<option value="Auto Mechanics">Auto Mechanics</option>
+								<option value="Barber">Barber</option>
+								<option value="Basket Weavers">Basket Weavers</option>
+								<option value="Battery Charger">Battery Charger</option>
+								<option value="Bicycle Repairer">Bicycle Repairer</option>
+								<option value="Borehole Experts">Borehole Experts</option>
+								<option value="Bricklayer">Bricklayer</option>
+								<option value="Carpenter">Carpenter</option>
+								<option value="Car Hire">Car Hire</option>
+								<option value="Carwash">Carwash</option>
+								<option value="Caterer">Caterer</option>
+								<option value="Ceiling POP">Ceiling POP</option>
+								<option value="Chef">Chef</option>
+								<option value="Cobler (Shoe Maker)">Cobler (Shoe Maker)</option>
+								<option value="Computer Repairs">Computer Repairs</option>
+								<option value="Costumer">Costumer</option>
+								<option value="Disc Jockey (DJ)">Disc Jockey (DJ)</option>
+								<option value="Dish Installer">Dish Installer</option>
+								<option value="Drycleaner">Drycleaner</option>
+								<option value="Electricians">Electricians</option>
+								<option value="Embroidery">Embroidery</option>
+								<option value="Fitness Instructor">Fitness Instructor</option>
+								<option value="Fumigators">Fumigators</option>
+								<option value="Gardener">Gardener</option>
+								<option value="Gas Cooker Repairs">Gas Cooker Repairs</option>
+								<option value="Gas Refill">Gas Refill</option>
+								<option value="Generator Repairer">Generator Repairer</option>
+								<option value="Graffiti Designer">Graffiti Designer</option>
+								<option value="Hairdresser">Hairdresser</option>
+								<option value="Horticulturist / Florist">Horticulturist / Florist</option>
+								<option value="Internet Cafe">Internet Cafe</option>
+								<option value="Iron Bender (Blacksmith)">Iron Bender (Blacksmith)</option>
+								<option value="Key Cutters">Key Cutters</option>
+								<option value="Make-up Artist">Make-up Artist</option>
+								<option value="Motorcycle Repairer">Motorcycle Repairer</option>
+								<option value="Painters">Painters</option>
+								<option value="Panel Beater">Panel Beater</option>
+								<option value="Phone Repairer">Phone Repairer</option>
+								<option value="Photographer">Photographer</option>
+								<option value="Plumber">Plumber</option>
+								<option value="Printer">Printer</option>
+								<option value="Rental Services">Rental Services</option>
+								<option value="Rewire">Rewire</option>
+								<option value="Roofing Expert">Roofing Expert</option>
+								<option value="Sign Writer">Sign Writer</option>
+								<option value="Spare Part Dealer">Spare Part Dealer</option>
+								<option value="Stainless Steel Installer">Stainless Steel Installer</option>
+								<option value="Tailor">Tailor</option>
+								<option value="Technician">Technician</option>
+								<option value="Television Repairer">Television Repairer</option>
+								<option value="Tiler">Tiler</option>
+								<option value="Towing Truck">Towing Truck</option>
+								<option value="Upholstery">Upholstery</option>
+								<option value="Veterinary Specialist">Veterinary Specialist</option>
+								<option value="Videographer">Videographer</option>
+								<option value="Vulcanizer">Vulcanizer</option>
+								<option value="Welder">Welder</option>
+								<option value="Wheel Balancing">Wheel Balancing</option>
+								<option value="Wood Turner">Wood Turner</option>
+		                    </select>
+		                </div>
+
+		                <div class="input-group">
+  							<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-map-marker"></i></span> 
+							<select name="userarea" id="userarea" value="" class="form-control input">
+								<option disabled="disabled" selected="selected" value="">Select Area (e.g Ikeja)</option>
+		                        <option value="Abule Ijesha">Abule Ijesha</option>
+								<option value="Abule Oja">Abule Oja</option>
+								<option value="Abule Okuta">Abule Okuta</option>
+								<option value="Abule-Egba">Abule-Egba</option>
+								<option value="Agbado Ijaiye">Agbado Ijaiye</option>
+								<option value="Agbara">Agbara</option>
+								<option value="Agege">Agege</option>
+								<option value="Agodo Egbe">Agodo Egbe</option>
+								<option value="Aguda Surulere">Aguda Surulere</option>
+								<option value="Ahmadiya">Ahmadiya</option>
+								<option value="Ajah">Ajah</option>
+								<option value="Ajangbadi">Ajangbadi</option>
+								<option value="Ajao Estate Isolo">Ajao Estate Isolo</option>
+								<option value="Ajegunle">Ajegunle</option>
+								<option value="Akesan">Akesan</option>
+								<option value="Akoka">Akoka</option>
+								<option value="Akowonjo">Akowonjo</option>
+								<option value="Alaba International">Alaba International</option>
+								<option value="Alagbado">Alagbado</option>
+								<option value="Alagomeji">Alagomeji</option>
+								<option value="Alapere Ketu">Alapere Ketu</option>
+								<option value="Alausa">Alausa</option>
+								<option value="Allen Avenue">Allen Avenue</option>
+								<option value="Amukoko">Amukoko</option>
+								<option value="Amuwo Odofin">Amuwo Odofin</option>
+								<option value="Anthony Village">Anthony Village</option>
+								<option value="Apapa">Apapa</option>
+								<option value="Ayobo">Ayobo</option>
+								<option value="Badagry">Badagry</option>
+								<option value="Badore">Badore</option>
+								<option value="Banana Island">Banana Island</option>
+								<option value="Bariga">Bariga</option>
+								<option value="Berger">Berger</option>
+								<option value="Dolphin Estate">Dolphin Estate</option>
+								<option value="Dopemu Agege">Dopemu Agege</option>
+								<option value="Ebute-Ero">Ebute-Ero</option>
+								<option value="Ebute-Metta">Ebute-Metta</option>
+								<option value="Egan-Igando">Egan-Igando</option>
+								<option value="Egbeda">Egbeda</option>
+								<option value="Ejigbo">Ejigbo</option>
+								<option value="Epe">Epe</option>
+								<option value="Fadeyi">Fadeyi</option>
+								<option value="Fagba">Fagba</option>
+								<option value="Festac Town">Festac Town</option>
+								<option value="Gbagada">Gbagada</option>
+								<option value="Gowon Estate">Gowon Estate</option>
+								<option value="Iba Town">Iba Town</option>
+								<option value="Ibeju Lekki">Ibeju Lekki</option>
+								<option value="Idi araba">Idi araba</option>
+								<option value="Idi oro">Idi oro</option>
+								<option value="Idimu">Idimu</option>
+								<option value="Ifako Agege">Ifako Agege</option>
+								<option value="Ifako Gbagada">Ifako Gbagada</option>
+								<option value="Ifako Ijaye">Ifako Ijaye</option>
+								<option value="Igando">Igando</option>
+								<option value="Ijaiye">Ijaiye</option>
+								<option value="Ijede">Ijede</option>
+								<option value="Ijegun">Ijegun</option>
+								<option value="Ijeshatedo">Ijeshatedo</option>
+								<option value="Ijoko">Ijoko</option>
+								<option value="Ijora">Ijora</option>
+								<option value="Ijora 7UP">Ijora 7UP</option>
+								<option value="Ijora Badia">Ijora Badia</option>
+								<option value="Iju">Iju</option>
+								<option value="Iju Ishaga">Iju Ishaga</option>
+								<option value="Ikate Elegushi">Ikate Elegushi</option>
+								<option value="Ikeja">Ikeja</option>
+								<option value="Ikeja Computer Village">Ikeja Computer Village</option>
+								<option value="Ikeja GRA">Ikeja GRA</option>
+								<option value="Ikorodu">Ikorodu</option>
+								<option value="Ikosi Ketu">Ikosi Ketu</option>
+								<option value="Ikota Lekki">Ikota Lekki</option>
+								<option value="Ikotun">Ikotun</option>
+								<option value="Ikotun Egbe">Ikotun Egbe</option>
+								<option value="ikoyi">ikoyi</option>
+								<option value="Ilaje Lekki">Ilaje Lekki</option>
+								<option value="Ilasamaja">Ilasamaja</option>
+								<option value="Ilupeju">Ilupeju</option>
+								<option value="Ipaja">Ipaja</option>
+								<option value="Isheri Oke">Isheri Oke</option>
+								<option value="Isheri Olofin">Isheri Olofin</option>
+								<option value="Isheri Oshun">Isheri Oshun</option>
+								<option value="Isolo">Isolo</option>
+								<option value="Itire Surulere">Itire Surulere</option>
+								<option value="Iwaya">Iwaya</option>
+								<option value="Iyana Ipaja">Iyana Ipaja</option>
+								<option value="Iyana Itire">Iyana Itire</option>
+								<option value="Jankara">Jankara</option>
+								<option value="Jibowu">Jibowu</option>
+								<option value="Ketu">Ketu</option>
+								<option value="Kirikiri">Kirikiri</option>
+								<option value="Lagos Island">Lagos Island</option>
+								<option value="Lawanson">Lawanson</option>
+								<option value="Lekki">Lekki</option>
+								<option value="Lekki Free Trade Zone">Lekki Free Trade Zone</option>
+								<option value="Lekki Phase 1">Lekki Phase 1</option>
+								<option value="Mafoluku Oshodi">Mafoluku Oshodi</option>
+								<option value="Magodo GRA Phase I">Magodo GRA Phase I</option>
+								<option value="Magodo GRA Phase II">Magodo GRA Phase II</option>
+								<option value="Magodo Isheri">Magodo Isheri</option>
+								<option value="Magodo Shangisha">Magodo Shangisha</option>
+								<option value="Makoko">Makoko</option>
+								<option value="Marina">Marina</option>
+								<option value="Maryland">Maryland</option>
+								<option value="Meiran">Meiran</option>
+								<option value="Mende Maryland">Mende Maryland</option>
+								<option value="Mile 12">Mile 12</option>
+								<option value="Mile 2">Mile 2</option>
+								<option value="Mushin">Mushin</option>
+								<option value="Obadore">Obadore</option>
+								<option value="Obalende">Obalende</option>
+								<option value="Obanikoro">Obanikoro</option>
+								<option value="Ogba">Ogba</option>
+								<option value="Ogba Aguda">Ogba Aguda</option>
+								<option value="Ojo">Ojo</option>
+								<option value="Ojo Badagry Expressway">Ojo Badagry Expressway</option>
+								<option value="Ojodu">Ojodu</option>
+								<option value="Ojokoro">Ojokoro</option>
+								<option value="Ojuelegba">Ojuelegba</option>
+								<option value="Oke-Afa Isolo">Oke-Afa Isolo</option>
+								<option value="Oko-Oba Agege">Oko-Oba Agege</option>
+								<option value="Okokomaiko">Okokomaiko</option>
+								<option value="Old Oko-Oba Agege">Old Oko-Oba Agege</option>
+								<option value="Olodi Apapa">Olodi Apapa</option>
+								<option value="Olowora">Olowora</option>
+								<option value="Omole Phase 1">Omole Phase 1</option>
+								<option value="Omole Phase II">Omole Phase II</option>
+								<option value="Onigbongbo">Onigbongbo</option>
+								<option value="Onike Yaba">Onike Yaba</option>
+								<option value="Onipanu">Onipanu</option>
+								<option value="Opebi">Opebi</option>
+								<option value="Oregun">Oregun</option>
+								<option value="Orile Agege">Orile Agege</option>
+								<option value="Orile Iganmu">Orile Iganmu</option>
+								<option value="Osapa (Lekki)">Osapa (Lekki)</option>
+								<option value="Oshodi">Oshodi</option>
+								<option value="Owode Onirin">Owode Onirin</option>
+								<option value="Oworonshoki">Oworonshoki</option>
+								<option value="Oyingbo">Oyingbo</option>
+								<option value="Palmgrove">Palmgrove</option>
+								<option value="Pedro Shomolu">Pedro Shomolu</option>
+								<option value="Sango Ota">Sango Ota</option>
+								<option value="Sangotedo (Lekki)">Sangotedo (Lekki)</option>
+								<option value="Satellite Town">Satellite Town</option>
+								<option value="Shasha">Shasha</option>
+								<option value="Shogunle">Shogunle</option>
+								<option value="Shomolu">Shomolu</option>
+								<option value="Surulere">Surulere</option>
+								<option value="Tincan Island">Tincan Island</option>
+								<option value="VGC Lekki">VGC Lekki</option>
+								<option value="Victoria Island">Victoria Island</option>
+								<option value="Yaba">Yaba</option>
+		                    </select>
+		                </div>
+
+		               	<div class="input-group">
+  						<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-venus-mars"></i></span> 
+                    		<select name="gender" id="gender" value="" class="form-control input" placeholder="Gender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                    		</select>
+                    	</div>
+						<div class="col-xs-offset-2 col-xs-8 input-group">
+							<button type="button" class="btn btn-default btn btn-block btn-success" onclick="savedetails()"><i class="fa fa-user"></i> Save Details</button>
+							<button type="button" class="btn btn-default btn btn-block btn-danger" onclick="prof()"><i class="fa fa-chevron-circle-left"></i> Back</button>
+						</div>
+            		</form> 
+
+				</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+<script>
+		var progress=0;
+		function prof()
+		{
+		$('body').loadie();
+
+    		progress = 0.2
+		setTimeout(function() {
+			$('body').loadie(progress);
+		}, 300);
+
+		//$('#start-loadie').bind('click', function() {
+			if(progress >= 0.9) {
+				$('.loadie').fadeIn();
+			}
+			progress = 0
+			$('body').loadie(progress);
+			setTimeout(function() {
+				progress = 0.1;
+				$('body').loadie(progress);
+				// console.log('Restarted -'+progress);
+			}, 600)
+		//$('#progress-loadie').bind('click', function() {
+			progress += 0.13;
+			// console.log('Increased by 0.1 - Is now '+progress);
+			$('body').loadie(progress);
+		//});
+		window.location="myprofile.html";
+		}
+
+</script>
+
+</body>
+</html>

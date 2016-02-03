@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notification</title>
+
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	 <link href="css/bootstrap.min.css" rel="stylesheet">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	 <script type="text/javascript" src="js/noti.js"></script>
+
+	<script src="js/loadie/jquery.min.js"></script>
+	<script src="js/loadie/jquery.loadie.js"></script>
+	<link rel="stylesheet" href="css/loadie/loadie.css">
+	<style>body{margin:0px}</style>
+    
+    <script>
+    function setCarouselHeight(id)
+    {
+        var slideHeight = [];
+        $(id+' .item').each(function()
+        {
+            // add all slide heights to an array
+            slideHeight.push($(this).height());
+        });
+
+        // find the tallest item
+        max = Math.max.apply(null, slideHeight);
+
+        // set the slide's height
+        $(id+' .carousel-content').each(function()
+        {
+            $(this).css('height',max+'px');
+        });
+    }
+	 </script>
+
+</head>
+<body class="background">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 cover title">
+				<div class="page-header">
+  					<h2>Notification(s) <small>Be up to date</small></h2>
+				</div>
+				<div class="col-lg-1"></div>
+				<div class="col-lg-10">
+					<button type="button" class="btn btn-default btn-lg btn-block btn-primary" onclick="openy();return false;"><i class="fa fa-refresh"></i> Refresh/ Check</button>
+					<hr></hr>
+						<div>
+							<button type="button" class="btn btn-default btn-lg btn-block" onclick="home()"><i class="fa fa-home"></i> Home</button>
+							<button type="button" class="btn btn-default btn-lg btn-block btn-success" onclick="prof()"><i class="fa fa-user"></i> My Profile</button>
+							<hr></hr>
+							<div id="noti"> <!-- To duplicate, start highlighting from here -->
+									
+							</div> <!-- To duplicate, stop highlighing here -->	
+
+						</div>
+				</div>
+				<div class="col-lg-1"></div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+
+	</div>
+	<script>
+		var progress=0;
+		function prof()
+		{
+		$('body').loadie();
+
+    		progress = 0.2
+		setTimeout(function() {
+			$('body').loadie(progress);
+		}, 300);
+
+		//$('#start-loadie').bind('click', function() {
+			if(progress >= 0.9) {
+				$('.loadie').fadeIn();
+			}
+			progress = 0
+			$('body').loadie(progress);
+			setTimeout(function() {
+				progress = 0.1;
+				$('body').loadie(progress);
+				// console.log('Restarted -'+progress);
+			}, 600)
+		//$('#progress-loadie').bind('click', function() {
+			progress += 0.13;
+			// console.log('Increased by 0.1 - Is now '+progress);
+			$('body').loadie(progress);
+		//});
+		window.location="myprofile.html";
+		}
+
+		function home()
+		{
+		$('body').loadie();
+
+    		progress = 0.2
+		setTimeout(function() {
+			$('body').loadie(progress);
+		}, 300);
+
+		//$('#start-loadie').bind('click', function() {
+			if(progress >= 0.9) {
+				$('.loadie').fadeIn();
+			}
+			progress = 0
+			$('body').loadie(progress);
+			setTimeout(function() {
+				progress = 0.1;
+				$('body').loadie(progress);
+				// console.log('Restarted -'+progress);
+			}, 600)
+		//alert();
+		//$('#progress-loadie').bind('click', function() {
+			progress += 0.13;
+			// console.log('Increased by 0.1 - Is now '+progress);
+			$('body').loadie(progress);
+		//});
+		//alert();
+		window.location="welcome.html";
+		}
+
+</script>
+</body>
+</html>
