@@ -6,10 +6,10 @@
         id        = "com.phonegap.helloworld"
         version   = "1.0.0">
 
-    <name>Handy App</name>
+    <name>Any Work</name>
 
     <description>
-        Handy App is a sample application that responds to the deviceready event.
+        Any work is a sample application that responds to the deviceready event.
     </description>
 
     <author href="http://phonegap.com" email="support@phonegap.com">
