@@ -13,7 +13,7 @@ function signup()
     var dataString = 'full='+ full + '&address=' + address + '&email=' + email + '&prof=' + prof + '&pass=' + pass +'&page=signup';
 		$.ajax({
 			type: "POST",
-			url: "http://handyserver.cloudapp.net/new/save_details.php",
+			url: "yourkudi.com/new/save_details.php",
 			data: dataString,
 			cache: false,
 			beforeSend: function()
@@ -40,7 +40,7 @@ function signin()
     var dataString = 'email=' + email + '&pass=' + pass +'&page=index';
 		$.ajax({
 			type: "POST",
-			url: "http://handyserver.cloudapp.net/new/login.php",
+			url: "yourkudi.com/new/login.php",
 			data: dataString,
 			cache: false,
 			beforeSend: function()
