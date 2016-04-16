@@ -6,6 +6,7 @@ var latitude = 0.0;
 var longitude = 0.0; 
 function getLocation()
 {
+	alert("here");
 	var area = $("#userarea").val();
 var geocoder = new google.maps.Geocoder();
 var address = area+", lagos ng";
