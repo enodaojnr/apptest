@@ -64,7 +64,7 @@ function getsearch(lati,longi,forad)
     //alert("are you here"+lati+""+longi)
     $.ajax({
 		   type: "POST",
-		   url: "yourkudi.com/new/search.php",
+		   url: "http://yourkudi.com/new/search.php",
 			data:'searchstrin='+searchstrin+'&lati='+lati+'&longi='+longi+'&forad='+forad,
 		   success: function(html){  
 		   //getti1(html);
