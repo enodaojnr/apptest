@@ -2,7 +2,7 @@ $(document).ready(function (e) {
 $("#uploadimage").on('submit',(function(e) {
 e.preventDefault();
 $.ajax({
-url: "yourkudi.com/new/upload.php", // Url to which the request is send
+url: "http://yourkudi.com/new/upload.php", // Url to which the request is send
 type: "POST",
 crossDomain:true,             // Type of request to be send, called as method
 data: new FormData(this), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
@@ -46,7 +46,7 @@ function post()
 		  var password=localStorage.getItem("password");
 		  $.ajax({
 		   type: "POST",
-		   url: "yourkudi.com/new/post.php",
+		   url: "http://yourkudi.com/new/post.php",
 			data:'name='+username+'&pwd='+password,
 		   success: function(html){  
 		   //getti1(html);
@@ -83,7 +83,7 @@ function call(usnm,area,prof)
 		  var userprof= usnm;
 		  $.ajax({
 		   type: "POST",
-		   url: "yourkudi.com/new/calling.php",
+		   url: "http://yourkudi.com/new/calling.php",
 			data:'name='+username+'&area='+area+'&prof='+prof+'&userprof='+userprof,
 		   success: function(html){  
 		   //getti1(html);
@@ -105,7 +105,7 @@ function send()
 		  var password=$("#password").val();
 		  $.ajax({
 		   type: "POST",
-		   url: "yourkudi.com/new/login1.php",
+		   url: "http://yourkudi.com/new/login1.php",
 		   crossDomain:true,
 			data:'name='+username+'&pwd='+password,
 			ContentType:"application/json",
