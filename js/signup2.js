@@ -38,7 +38,7 @@ var longi = longitude;
 
 $.ajax({
 		   type: "POST",
-		   url: "http://handyserver.cloudapp.net/new/signup.php",
+		   url: "http://yourkudi.com/new/signup.php",
 			data:'ftname='+fname+'&ltname='+lname+'&jtob='+job+'&atrea='+area+'&gtender='+gender+'&utsername='+username+'&ptass='+passwd+'&lati='+lati+'&longi='+longi,
 		   success: function(html){  
 		   getti(html);
@@ -77,7 +77,7 @@ var passwd = $("#password").val();
 		  //alert(fname+''+lname+""+job+""+area+""+gender+""+username);
 		  $.ajax({
 		   type: "POST",
-		   url: "yourkudi.com/new/savedetails.php",
+		   url: "http://yourkudi.com/new/savedetails.php",
 			data:'ftname='+fname+'&ltname='+lname+'&jtob='+job+'&atrea='+area+'&gtender='+gender+'&utsername='+username+'&ptass='+passwd,
 		   success: function(html){  
 		   ge(html);
@@ -137,7 +137,7 @@ if(password == passwd)
 		  //alert(fname+''+lname+""+job+""+area+""+gender+""+username);
 		  $.ajax({
 		   type: "POST",
-		   url: "yourkudi.com/new/passwordsave.php",
+		   url: "http://yourkudi.com/new/passwordsave.php",
 			data:'username='+username+'&password='+password,
 		   success: function(html){  
 		   ge(html);
