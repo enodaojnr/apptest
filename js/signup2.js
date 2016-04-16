@@ -76,7 +76,7 @@ var passwd = $("#password").val();
 		  //alert(fname+''+lname+""+job+""+area+""+gender+""+username);
 		  $.ajax({
 		   type: "POST",
-		   url: "http://handyserver.cloudapp.net/new/savedetails.php",
+		   url: "yourkudi.com/new/savedetails.php",
 			data:'ftname='+fname+'&ltname='+lname+'&jtob='+job+'&atrea='+area+'&gtender='+gender+'&utsername='+username+'&ptass='+passwd,
 		   success: function(html){  
 		   ge(html);
@@ -136,7 +136,7 @@ if(password == passwd)
 		  //alert(fname+''+lname+""+job+""+area+""+gender+""+username);
 		  $.ajax({
 		   type: "POST",
-		   url: "http://handyserver.cloudapp.net/new/passwordsave.php",
+		   url: "yourkudi.com/new/passwordsave.php",
 			data:'username='+username+'&password='+password,
 		   success: function(html){  
 		   ge(html);
