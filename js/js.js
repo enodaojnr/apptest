@@ -117,12 +117,12 @@ function send()
 		   },
 		   beforeSend:function()
 		   {
-		//alert("going"+username);
+		alert("going"+username);
 		   },
 		   error:function(res,txt,noti)
 		   {
 		   	//var datax = eval("("+res.responseText+")");
-		   	alert(res.responseText);
+		   	//alert(res.responseText);
 		   }
 		  });
 }
