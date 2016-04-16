@@ -7,7 +7,7 @@ var progress=0;
     //alert("are you here"+lati+""+longi)
     $.ajax({
 		   type: "POST",
-		   url: "yourkudi.com/new/e.php",
+		   url: "http://yourkudi.com/new/e.php",
 			data:'name='+user+'&p='+p,
 		   success: function(html){  
 		   progress =1;
