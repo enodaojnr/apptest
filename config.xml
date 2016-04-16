@@ -9,8 +9,7 @@
         
         <gap:config-file platform="android" parent="/manifest/application" >
         <application android:debuggable="false" />
-        <activity android:screenOrientation="landscape" android:configChanges="orientation" android:name=".Activity.SplashScreenActivity" />
-    </gap:config-file>
+       </gap:config-file>
     
     <name>Any Work</name>
 
