@@ -7,7 +7,7 @@ var progress=0;
     //alert("are you here"+lati+""+longi)
     $.ajax({
 		   type: "POST",
-		   url: "http://handyserver.cloudapp.net/new/e.php",
+		   url: "yourkudi.com/new/e.php",
 			data:'name='+user+'&p='+p,
 		   success: function(html){  
 		   progress =1;
