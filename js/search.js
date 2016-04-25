@@ -81,7 +81,7 @@ function getsearch(lati,longi,forad)
                    {
                        //alert($("#searchtxt").html());
                         num++;       
-					             document.getElementById("searchrep").innerHTML += htl[p];
+			document.getElementById("searchrep").innerHTML += htl[p];
                    }
                    document.getElementById("resultsnum").innerHTML=num;
 		   },
